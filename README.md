@@ -39,6 +39,13 @@ Convert MS SQL Schema to PlantUML diagram source using Python
 ## M1 Mac, Mac OS X
 * Follow [these homebrew instructions from MS](https://docs.microsoft.com/en-us/sql/connect/odbc/linux-mac/install-microsoft-odbc-driver-sql-server-macos?view=sql-server-ver16) to install the libraries, followed by the instructions in [this github comment](https://github.com/mkleehammer/pyodbc/issues/385#issuecomment-953105425) to install the `pyodbc` module.  Then use the `-D /opt/homebrew/lib/libmsodbcsql.17.dylib` flag on the cli.
 
+# Docker
+
+```
+docker build -t sql2puml .  
+docker run --rm sql2puml -- python sql2puml.py -S mysql -d <db> -h <host> -p <port> -u <user> -P <pass> > schema.plantuml
+```
+
 # References
 1. [PyODBC Cursor](https://github.com/mkleehammer/pyodbc/wiki/Cursor)
 2. [MySQL ODBC Driver](https://dev.mysql.com/downloads/file/?id=501047)
